@@ -15,9 +15,15 @@ h1,#st,.tabs button,button.b,.pts{font-family:"Baloo 2",Nunito,system-ui,sans-se
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
 h1{font-weight:800;font-size:1.55rem;line-height:1.2;margin:6px 0 10px}
 .pts{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:2px 12px;font-weight:800;white-space:nowrap}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-.tabs button{flex:1;min-width:140px;padding:8px 12px;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;transition:transform .15s}
-.tabs button[aria-selected=true]{background:var(--acc);color:var(--on);border-color:var(--acc);transform:translateY(-2px)}
+.pick{font:800 1rem "Baloo 2",Nunito,sans-serif;color:var(--ink);margin:2px 0 6px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}@media(max-width:640px){.tabs{grid-template-columns:1fr}}
+.tabs button{--c:var(--a0);display:flex;align-items:center;gap:10px;text-align:left;padding:10px 12px;border:2px solid var(--c);background:var(--card);color:var(--ink);border-radius:18px;font-weight:600;font-size:1rem;cursor:pointer;box-shadow:0 4px 0 var(--c);transition:transform .15s,box-shadow .15s}
+.tabs button[data-n="1"]{--c:var(--a1)}.tabs button[data-n="2"]{--c:var(--a2)}
+.tabs button i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--c);color:var(--on);display:grid;place-items:center;font:800 1.05rem "Baloo 2",sans-serif;font-style:normal}
+.tabs button b{display:block;line-height:1.2;font-weight:600}.tabs button small{display:block;font:400 .8rem/1.3 Nunito,sans-serif;color:var(--mute)}
+.tabs button[aria-selected=true]{background:var(--c);color:var(--on);transform:translateY(-2px);box-shadow:0 6px 0 color-mix(in srgb,var(--c) 60%,#000)}
+.tabs button[aria-selected=true] small{color:var(--on);opacity:.9}.tabs button[aria-selected=true] i{background:var(--on);color:var(--c)}
+.cr{text-align:center;color:var(--mute);font-size:.85rem;padding:6px 0 14px}
 .card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:14px;margin-bottom:12px;box-shadow:0 6px 0 var(--line)}
 .sn{font-size:.85rem;color:var(--mute);display:block}
 .bar{height:10px;background:var(--line);border-radius:10px;margin:4px 0 8px;overflow:hidden}
@@ -61,8 +67,9 @@ table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}th,td
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
 </style></head>
 <body><div class="wrap">
-<div class="top"><h1>🧪 Lab Seru: Protein dan Enzim</h1><span class="pts" id="pts">⭐ 0</span></div>
-<div class="tabs"><button data-n="0">🥚 Denaturasi protein</button><button data-n="1">🫧 Sifat saliva</button><button data-n="2">🍞 Enzim amilase</button></div>
+<div class="top"><h1>🧪 Protein dan Enzim</h1><span class="pts" id="pts">⭐ 0</span></div>
+<p class="pick">👇 Pilih percobaan</p>
+<div class="tabs"><button data-n="0"><i>1</i><span><b>🥚 Denaturasi protein</b><small>Panas, garam, asam, alkohol</small></span></button><button data-n="1"><i>2</i><span><b>🫧 Sifat saliva</b><small>Asam, basa, atau netral?</small></span></button><button data-n="2"><i>3</i><span><b>🍞 Enzim amilase</b><small>Pengaruh suhu pada pati</small></span></button></div>
 <div class="card">
 <span class="sn" id="sn"></span><div class="bar"><i id="bar"></i></div>
 <p id="st"></p><p id="sd"></p>
@@ -71,7 +78,7 @@ table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}th,td
 <div class="zoom"><b>🔬 Zoom molekul</b><svg id="zm" viewBox="0 0 220 130" aria-hidden="true"></svg><p id="zc"></p></div></div>
 <div class="row"><button class="b" id="nx"></button><button class="b o" id="rs">Mulai ulang</button></div>
 <div id="tbl"></div>
-</div><div id="cf"></div></div>
+</div><footer class="cr">Copyright © 2026 by @biokimiaveteriner_fkuh</footer><div id="cf"></div></div>
 <script>
 const NS='http://www.w3.org/2000/svg',$=s=>document.querySelector(s),wait=ms=>new Promise(r=>setTimeout(r,ms));
 const S={smp:'egg'};let uid=0,cur,si,busy,tab=0;
@@ -233,7 +240,7 @@ const star=()=>$('#pts').textContent='⭐ '+(++pts);
 const ask=q=>new Promise(r=>{const o=$('#obs');o.innerHTML='<b>Tebak dulu!</b> '+q[0]+'<div>'+q[1].map((t,i)=>'<button class="b o" data-i="'+i+'">'+t+'</button>').join('')+'</div>';o.onclick=e=>{const b=e.target.closest('button');if(!b)return;const ok=+b.dataset.i===q[2];o.onclick=null;if(ok)star();o.textContent=(ok?'Tepat! ⭐ ':'Hampir! ')+q[3];setTimeout(r,2400)}});
 function boom(){for(let i=0;i<46;i++){const d=document.createElement('i');d.className='cf';d.style.cssText='left:'+Math.random()*100+'%;background:hsl('+Math.random()*360+' 85% 60%);animation-delay:'+Math.random()*.6+'s';$('#cf').appendChild(d);setTimeout(()=>d.remove(),3600)}}
 function hdr(){const N=cur.steps.length;$('#sn').textContent=si<0?'Siap dimulai':'Langkah '+(si+1)+' dari '+N;$('#bar').style.width=((si+1)/N*100)+'%';const s=si<0?{t:cur.title,d:cur.goal}:cur.steps[si];$('#st').textContent=s.t;$('#sd').textContent=s.d}
-function load(n){tab=n;document.body.dataset.t=n;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.n==n));const svg=$('#stage');svg.innerHTML='';uid=0;busy=false;S.smp='egg';Z=[Z1,Z2,Z3][n]();cur=[B1,B2,B3][n](svg);si=-1;dog('');$('#obs').onclick=null;$('#obs').textContent='Halo, aku Drh. Bobi! Tekan tombol untuk mulai.';$('#tbl').innerHTML='';NX.textContent='Mulai: '+cur.steps[0].t;NX.disabled=false;hdr()}
+function load(n){tab=n;document.body.dataset.t=n;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.n==n));const svg=$('#stage');svg.innerHTML='';uid=0;busy=false;S.smp='egg';Z=[Z1,Z2,Z3][n]();cur=[B1,B2,B3][n](svg);si=-1;dog('');$('#obs').onclick=null;$('#obs').textContent='Halo, aku Drh. Pronzim! Tekan tombol untuk mulai.';$('#tbl').innerHTML='';NX.textContent='Mulai: '+cur.steps[0].t;NX.disabled=false;hdr()}
 async function next(){if(busy)return;busy=true;NX.disabled=true;si++;hdr();const s=cur.steps[si];dog('busy');if(s.q)await ask(s.q);$('#obs').innerHTML='Sedang berjalan...';const r=await s.go();if(r){if(r[0]==='<')$('#obs').innerHTML=r;else $('#obs').textContent=r}dog('ok');setTimeout(()=>dog(''),1600);busy=false;if(si>=cur.steps.length-1){NX.textContent='Selesai 🎉';boom();$('#obs').textContent+=' Skor kamu: ⭐ '+pts;return}NX.textContent='Lanjut: '+cur.steps[si+1].t;NX.disabled=!!s.hold}
 NX.onclick=next;$('#rs').onclick=()=>load(tab);
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>load(+b.dataset.n));
