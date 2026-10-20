@@ -4,10 +4,10 @@
 <title>Simulasi Praktikum Protein dan Enzim</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700&display=swap">
 <style>
-:root{--bg:#e8f2ff;--card:#fff;--ink:#1b2a4a;--mute:#56668a;--line:#cbdaf2;--on:#fff;--w1:#bfdcff;--w2:#e4f0ff;--b1:#d9b27a;--b2:#b88c55;--glass:#dfeeff;--rack:#c99d63;--a0:#d93f31;--a1:#0b7f8a;--a2:#6d4aff;--acc:var(--a0);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1630;--card:#18213f;--ink:#e8eeff;--mute:#a3b1d6;--line:#2c3a66;--on:#1a0b09;--w1:#1d2a55;--w2:#26356a;--b1:#6b4e2a;--b2:#4a3419;--glass:#1d2c4d;--rack:#5a4326;--a0:#ff7a6b;--a1:#3ed3df;--a2:#a994ff}}
-:root[data-theme="dark"]{--bg:#0f1630;--card:#18213f;--ink:#e8eeff;--mute:#a3b1d6;--line:#2c3a66;--on:#1a0b09;--w1:#1d2a55;--w2:#26356a;--b1:#6b4e2a;--b2:#4a3419;--glass:#1d2c4d;--rack:#5a4326;--a0:#ff7a6b;--a1:#3ed3df;--a2:#a994ff}
-body[data-t="1"]{--acc:var(--a1)}body[data-t="2"]{--acc:var(--a2)}
+:root{--bg:#e8f2ff;--card:#fff;--ink:#1b2a4a;--mute:#56668a;--line:#cbdaf2;--on:#fff;--w1:#bfdcff;--w2:#e4f0ff;--b1:#d9b27a;--b2:#b88c55;--glass:#dfeeff;--rack:#c99d63;--a0:#d93f31;--a1:#0b7f8a;--a2:#6d4aff;--a3:#b84a0b;--acc:var(--a0);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1630;--card:#18213f;--ink:#e8eeff;--mute:#a3b1d6;--line:#2c3a66;--on:#1a0b09;--w1:#1d2a55;--w2:#26356a;--b1:#6b4e2a;--b2:#4a3419;--glass:#1d2c4d;--rack:#5a4326;--a0:#ff7a6b;--a1:#3ed3df;--a2:#a994ff;--a3:#ffa24a}}
+:root[data-theme="dark"]{--bg:#0f1630;--card:#18213f;--ink:#e8eeff;--mute:#a3b1d6;--line:#2c3a66;--on:#1a0b09;--w1:#1d2a55;--w2:#26356a;--b1:#6b4e2a;--b2:#4a3419;--glass:#1d2c4d;--rack:#5a4326;--a0:#ff7a6b;--a1:#3ed3df;--a2:#a994ff;--a3:#ffa24a}
+body[data-t="1"]{--acc:var(--a1)}body[data-t="2"]{--acc:var(--a2)}body[data-t="3"]{--acc:var(--a3)}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;--acc2:color-mix(in srgb,var(--acc) 14%,var(--card));background:radial-gradient(circle at 8% 0,color-mix(in srgb,var(--acc) 22%,transparent),transparent 45%),var(--bg);color:var(--ink);font:16px/1.5 Nunito,"Segoe UI",system-ui,sans-serif}
 h1,#st,.tabs button,button.b,.pts{font-family:"Baloo 2",Nunito,system-ui,sans-serif}
@@ -16,9 +16,9 @@ h1,#st,.tabs button,button.b,.pts{font-family:"Baloo 2",Nunito,system-ui,sans-se
 h1{font-weight:800;font-size:1.55rem;line-height:1.2;margin:6px 0 10px}
 .pts{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:2px 12px;font-weight:800;white-space:nowrap}
 .pick{font:800 1rem "Baloo 2",Nunito,sans-serif;color:var(--ink);margin:2px 0 6px}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}@media(max-width:640px){.tabs{grid-template-columns:1fr}}
+.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:14px}
 .tabs button{--c:var(--a0);display:flex;align-items:center;gap:10px;text-align:left;padding:10px 12px;border:2px solid var(--c);background:var(--card);color:var(--ink);border-radius:18px;font-weight:600;font-size:1rem;cursor:pointer;box-shadow:0 4px 0 var(--c);transition:transform .15s,box-shadow .15s}
-.tabs button[data-n="1"]{--c:var(--a1)}.tabs button[data-n="2"]{--c:var(--a2)}
+.tabs button[data-n="1"]{--c:var(--a1)}.tabs button[data-n="2"]{--c:var(--a2)}.tabs button[data-n="3"]{--c:var(--a3)}
 .tabs button i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--c);color:var(--on);display:grid;place-items:center;font:800 1.05rem "Baloo 2",sans-serif;font-style:normal}
 .tabs button b{display:block;line-height:1.2;font-weight:600}.tabs button small{display:block;font:400 .8rem/1.3 Nunito,sans-serif;color:var(--mute)}
 .tabs button[aria-selected=true]{background:var(--c);color:var(--on);transform:translateY(-2px);box-shadow:0 6px 0 color-mix(in srgb,var(--c) 60%,#000)}
@@ -30,12 +30,18 @@ h1{font-weight:800;font-size:1.55rem;line-height:1.2;margin:6px 0 10px}
 .bar i{display:block;height:100%;width:0;border-radius:10px;background:repeating-linear-gradient(45deg,var(--acc) 0 10px,color-mix(in srgb,var(--acc) 75%,#fff) 10px 20px);transition:width .5s}
 #st{font-weight:800;font-size:1.35rem;line-height:1.2;margin:0;color:var(--acc)}#sd{margin:2px 0 10px;color:var(--mute)}
 svg#stage{width:100%;height:auto;display:block;border-radius:16px;border:2px solid var(--line)}
-.duo{display:grid;grid-template-columns:1.35fr 1fr;gap:12px;margin-top:12px}@media(max-width:640px){.duo{grid-template-columns:1fr}}
+.duo{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-top:12px}@media(max-width:640px){.duo{grid-template-columns:1fr}}
 .say{display:flex;gap:10px;align-items:flex-start}.say svg{width:76px;flex:none}
 #obs{position:relative;flex:1;background:var(--acc2);border:2px solid var(--acc);border-radius:16px;padding:10px 12px;min-height:60px}
 #obs::before{content:"";position:absolute;left:-9px;top:22px;width:14px;height:14px;background:var(--acc2);border:solid var(--acc);border-width:0 0 2px 2px;transform:rotate(45deg)}
 #obs button{margin:6px 6px 0 0;padding:7px 12px}
 .zoom{background:var(--card);border:2px dashed var(--acc);border-radius:16px;padding:8px 10px}.zoom b{font-family:"Baloo 2",sans-serif}.zoom p{margin:2px 0 0;font-size:.85rem;color:var(--mute)}#zm{width:100%;height:auto;display:block}
+.zr{margin:2px 0 4px}.zr[hidden]{display:none}.zr label{display:block;text-align:center;font:800 .88rem "Baloo 2",sans-serif;color:var(--ink)}
+.zr input{-webkit-appearance:none;appearance:none;display:block;width:89%;margin:8px 5.5% 2px;height:14px;border-radius:8px;border:2px solid var(--mute);cursor:pointer;background:linear-gradient(90deg,#e5322d,#ee4a2c,#f26a2a,#f59a2c,#f5c431,#e8e04a,#6fbf4a,#3fae7a,#2f9a8a,#2f87b8,#3a5fd3,#5a4bc4,#6b3fa0,#5a2d86)}
+.zr input::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--card);border:3px solid var(--ink);cursor:grab;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.zr input::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--card);border:3px solid var(--ink);cursor:grab}
+.zr input::-moz-range-track{background:transparent}
+.zr input:focus-visible{outline:3px solid var(--acc);outline-offset:4px}
 .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 button.b{background:var(--acc);color:var(--on);border:0;border-radius:14px;padding:9px 18px;font-weight:600;font-size:1rem;cursor:pointer;box-shadow:0 4px 0 color-mix(in srgb,var(--acc) 60%,#000);transition:transform .1s,box-shadow .1s}
 button.b:active{transform:translateY(3px);box-shadow:0 1px 0 color-mix(in srgb,var(--acc) 60%,#000)}
@@ -43,13 +49,16 @@ button.b.o{background:transparent;color:var(--acc);border:2px solid var(--acc);b
 button.b:disabled{opacity:.45;cursor:default}button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}th,td{border:1px solid var(--line);padding:6px;text-align:left}th{background:var(--acc2)}
 .scroll{overflow-x:auto}.chip{display:inline-block;width:13px;height:13px;border-radius:50%;border:1px solid var(--mute);vertical-align:-2px;margin-right:5px}
-.tg{transition:transform 1s ease,opacity .6s}.fd{transition:opacity .8s}
+.tg{transition:transform 1s ease,opacity .6s;filter:drop-shadow(3px 7px 4px rgba(0,0,0,.28))}.fd{transition:opacity .8s}
 .liq{fill:#eee;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1.2s ease,fill 1.2s ease}
 .glass{fill:rgba(255,255,255,.14);stroke:var(--mute);stroke-width:2}
 .shine{stroke:#fff;stroke-opacity:.55;stroke-width:3;stroke-linecap:round;fill:none}
 .tl{font:800 12px "Baloo 2",sans-serif;text-anchor:middle;fill:var(--ink);paint-order:stroke;stroke:var(--rack);stroke-width:3px}
 .ts{font:11px Nunito,sans-serif;text-anchor:middle;fill:var(--ink);paint-order:stroke;stroke:var(--rack);stroke-width:3px}
 .zt{font:800 13px "Baloo 2",sans-serif;text-anchor:middle;fill:var(--ink)}
+.zh{font:800 11.5px "Baloo 2",sans-serif;text-anchor:middle;fill:var(--ink)}
+.zn{font:800 8px "Baloo 2",sans-serif;text-anchor:middle;fill:var(--ink)}
+.zl{font:10px Nunito,sans-serif;fill:var(--ink)}
 .fl{fill:#fff;stroke:rgba(0,0,0,.3);animation:fl 1.4s ease both}
 @keyframes fl{from{transform:translateY(-45px);opacity:0}to{transform:none;opacity:1}}
 .bb{fill:none;stroke:#fff;stroke-width:1.5;animation:bb 1s linear infinite}
@@ -69,13 +78,15 @@ table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}th,td
 <body><div class="wrap">
 <div class="top"><h1>🧪 Protein dan Enzim</h1><span class="pts" id="pts">⭐ 0</span></div>
 <p class="pick">👇 Pilih percobaan</p>
-<div class="tabs"><button data-n="0"><i>1</i><span><b>🥚 Denaturasi protein</b><small>Panas, garam, asam, alkohol</small></span></button><button data-n="1"><i>2</i><span><b>🫧 Sifat saliva</b><small>Asam, basa, atau netral?</small></span></button><button data-n="2"><i>3</i><span><b>🍞 Enzim amilase</b><small>Pengaruh suhu pada pati</small></span></button></div>
+<div class="tabs"><button data-n="0"><i>1</i><span><b>🥚 Denaturasi protein</b><small>Panas, garam, asam, alkohol</small></span></button><button data-n="1"><i>2</i><span><b>🫧 Sifat saliva</b><small>Asam, basa, atau netral?</small></span></button><button data-n="2"><i>3</i><span><b>🍞 Enzim amilase</b><small>Pengaruh suhu pada pati</small></span></button><button data-n="3"><i>4</i><span><b>📝 Kuis materi</b><small>10 soal pilihan ganda</small></span></button></div>
 <div class="card">
 <span class="sn" id="sn"></span><div class="bar"><i id="bar"></i></div>
 <p id="st"></p><p id="sd"></p>
 <svg id="stage" viewBox="0 0 720 340" role="img" aria-label="Ilustrasi percobaan"></svg>
 <div class="duo"><div class="say"><svg id="dog" viewBox="0 0 100 104" aria-hidden="true"><g id="dg"><path d="M20 38Q2 40 8 74Q24 72 30 52Z" fill="#8a5a33"/><path d="M80 38Q98 40 92 74Q76 72 70 52Z" fill="#8a5a33"/><path d="M26 88L50 100L74 88V104H26Z" fill="#fff" stroke="var(--line)" stroke-width="2"/><ellipse cx="50" cy="48" rx="31" ry="29" fill="#d9a066"/><ellipse cx="50" cy="60" rx="17" ry="13" fill="#f6e3c8"/><rect x="27" y="33" width="46" height="16" rx="8" fill="#bfe9ff" fill-opacity=".6" stroke="#2b7a99" stroke-width="3"/><circle cx="39" cy="41" r="4" fill="#1b2a4a"/><circle cx="61" cy="41" r="4" fill="#1b2a4a"/><ellipse cx="50" cy="55" rx="6" ry="4.5" fill="#1b2a4a"/><path d="M42 63Q50 70 58 63" stroke="#1b2a4a" fill="none" stroke-width="2.5" stroke-linecap="round"/><path id="tn" d="M46 66v8a4 4 0 0 0 8 0v-8z" fill="#ff7a9a"/></g></svg><div id="obs"></div></div>
-<div class="zoom"><b>🔬 Zoom molekul</b><svg id="zm" viewBox="0 0 220 130" aria-hidden="true"></svg><p id="zc"></p></div></div>
+<div class="zoom"><b>🔬 Zoom molekul</b><svg id="zm" viewBox="0 0 220 164" role="img" aria-label="Zoom molekul"></svg>
+<div class="zr" id="zr" hidden><label for="phr">Geser untuk melihat pH: <span id="phv">7</span></label><input type="range" id="phr" min="1" max="14" step="0.1" value="7"></div>
+<p id="zc"></p></div></div>
 <div class="row"><button class="b" id="nx"></button><button class="b o" id="rs">Mulai ulang</button></div>
 <div id="tbl"></div>
 </div><footer class="cr">Copyright © 2026 by @biokimiaveteriner_fkuh</footer><div id="cf"></div></div>
@@ -86,23 +97,28 @@ function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a||{})e
 function mv(g,x,y){g.style.transform='translate('+x+'px,'+y+'px)'}
 const chip=(c,t)=>'<span class="chip" style="background:'+c+'"></span>'+t;
 const tb=(h,r)=>'<div class="scroll"><table><thead><tr>'+h.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+r.map(a=>'<tr>'+a.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
-function base(svg,H,x1,x2){svg.setAttribute('viewBox','0 0 720 '+H);const C=[['#ff8a7a','#ffd166','#7bd389'],['#4fd1c5','#ffd166','#9b8cff'],['#9b8cff','#ff8a7a','#4fb6ff']][tab],P=[['Protein kusut?','Itu denaturasi 🧶'],['Asam, netral,','atau basa? 🔎'],['Enzim: gunting','molekul ✂️']][tab];
- svg.innerHTML='<defs><linearGradient id="gw" x2="0" y2="1"><stop offset="0" style="stop-color:var(--w1)"/><stop offset="1" style="stop-color:var(--w2)"/></linearGradient><linearGradient id="gb" x2="0" y2="1"><stop offset="0" style="stop-color:var(--b1)"/><stop offset="1" style="stop-color:var(--b2)"/></linearGradient><linearGradient id="gs"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient></defs>'
- +'<rect width="720" height="'+H+'" fill="url(#gw)"/><rect y="250" width="720" height="'+(H-250)+'" fill="url(#gb)"/><path d="M0 285H720M0 322H720" stroke="#000" stroke-opacity=".12" stroke-width="2"/>'
- +'<rect x="14" y="78" width="230" height="9" rx="3" fill="#8a6234"/><path d="M40 78L50 46V30h14v16l10 32z" fill="'+C[0]+'" stroke="var(--mute)" stroke-width="2"/><circle cx="125" cy="60" r="18" fill="'+C[1]+'" stroke="var(--mute)" stroke-width="2"/><rect x="118" y="28" width="14" height="14" rx="3" fill="'+C[1]+'" stroke="var(--mute)" stroke-width="2"/><rect x="180" y="36" width="22" height="42" rx="5" fill="'+C[2]+'" stroke="var(--mute)" stroke-width="2"/><rect x="212" y="54" width="20" height="24" rx="5" fill="'+C[0]+'" stroke="var(--mute)" stroke-width="2"/>'
+function base(svg,H,x1,x2){svg.setAttribute('viewBox','0 0 720 '+H);const C=[['#ff8a7a','#ffd166','#7bd389'],['#4fd1c5','#ffd166','#9b8cff'],['#9b8cff','#ff8a7a','#4fb6ff'],['#ffb04a','#4fd1c5','#9b8cff']][tab],P=[['Uji Denaturasi','Protein'],['Uji Keasaman','Saliva'],['Aktivitas Enzim','Amilase Saliva'],['Kuis Praktikum','Protein dan Enzim']][tab];
+ svg.innerHTML='<defs><linearGradient id="gw" x2="0" y2="1"><stop offset="0" style="stop-color:var(--w1)"/><stop offset="1" style="stop-color:var(--w2)"/></linearGradient><linearGradient id="gb" x2="0" y2="1"><stop offset="0" style="stop-color:var(--b1)"/><stop offset="1" style="stop-color:var(--b2)"/></linearGradient><linearGradient id="gs"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient><radialGradient id="gr" cx=".3" cy=".1" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>'
+ +'<rect width="720" height="'+H+'" fill="url(#gw)"/><rect width="720" height="250" fill="url(#gr)"/><rect y="250" width="720" height="'+(H-250)+'" fill="url(#gb)"/><rect y="250" width="720" height="7" fill="#fff" fill-opacity=".28"/><path d="M360 250L40 '+H+'M360 250L220 '+H+'M360 250L500 '+H+'M360 250L680 '+H+'M0 285H720M0 322H720" stroke="#000" stroke-opacity=".1" stroke-width="2"/>'
+ +'<rect x="14" y="78" width="230" height="9" rx="3" fill="#8a6234"/><rect x="14" y="87" width="230" height="5" fill="#000" fill-opacity=".15"/><path d="M40 78L50 46V30h14v16l10 32z" fill="'+C[0]+'" stroke="var(--mute)" stroke-width="2"/><circle cx="125" cy="60" r="18" fill="'+C[1]+'" stroke="var(--mute)" stroke-width="2"/><rect x="118" y="28" width="14" height="14" rx="3" fill="'+C[1]+'" stroke="var(--mute)" stroke-width="2"/><rect x="180" y="36" width="22" height="42" rx="5" fill="'+C[2]+'" stroke="var(--mute)" stroke-width="2"/><rect x="212" y="54" width="20" height="24" rx="5" fill="'+C[0]+'" stroke="var(--mute)" stroke-width="2"/><path d="M52 50V76M118 52a10 10 0 0 0-3 12M185 42V72" class="shine"/>'
  +'<rect x="430" y="14" width="160" height="64" rx="10" fill="var(--card)" stroke="var(--line)" stroke-width="3"/><text x="510" y="40" class="zt">'+P[0]+'</text><text x="510" y="62" class="zt">'+P[1]+'</text>'
- +'<rect x="'+(x1-14)+'" y="196" width="'+(x2-x1+28)+'" height="9" rx="4" fill="#8a6234"/><rect x="'+(x1-14)+'" y="196" width="9" height="54" fill="#8a6234"/><rect x="'+(x2+5)+'" y="196" width="9" height="54" fill="#8a6234"/><rect x="'+(x1-14)+'" y="238" width="'+(x2-x1+28)+'" height="12" rx="3" fill="#7b5e34"/>'}
+ +'<rect x="'+(x1-14)+'" y="196" width="'+(x2-x1+28)+'" height="9" rx="4" fill="#8a6234"/><rect x="'+(x1-14)+'" y="196" width="9" height="54" fill="#8a6234"/><rect x="'+(x2+5)+'" y="196" width="9" height="54" fill="#8a6234"/><rect x="'+(x1-14)+'" y="238" width="'+(x2-x1+28)+'" height="12" rx="3" fill="#7b5e34"/><ellipse cx="'+((x1+x2)/2)+'" cy="260" rx="'+((x2-x1)/2+30)+'" ry="8" fill="#000" fill-opacity=".16"/>'}
 function mkTube(svg,x,y,l1,l2){
  const id='c'+uid++,g=el('g',{class:'tg'},svg),o={g};mv(g,x,y);g.style.opacity=0;
  const d='M0 0V101a17 17 0 0 0 34 0V0';
  el('path',{d:d+'Z'},el('clipPath',{id},g));
  const lg=el('g',{'clip-path':'url(#'+id+')'},g);
- o.liq=el('rect',{width:34,height:118,class:'liq'},lg);o.fx=el('g',{},lg);el('rect',{width:34,height:118,fill:'url(#gs)'},lg);
- el('path',{d,class:'glass'},g);el('rect',{x:-3,y:-3,width:40,height:6,rx:3,fill:'var(--mute)',opacity:.55},g);el('path',{d:'M7 10V88',class:'shine'},g);
+ o.liq=el('rect',{width:34,height:118,class:'liq'},lg);
+ /* permukaan cairan (meniscus) supaya level cairan di tabung kelihatan jelas */
+ o.sf=el('ellipse',{cx:17,cy:0,rx:16,ry:3.6,fill:'#fff','fill-opacity':.4,stroke:'#fff','stroke-opacity':.8,'stroke-width':1.2},lg);o.sf.style.opacity=0;o.sf.style.transition='transform 1.2s ease,opacity .6s';
+ o.fx=el('g',{},lg);el('rect',{width:34,height:118,fill:'url(#gs)'},lg);
+ el('ellipse',{cx:17,cy:112,rx:13,ry:5,fill:'#000','fill-opacity':.12},lg);
+ el('path',{d,class:'glass'},g);el('ellipse',{cx:17,cy:-1,rx:20,ry:4.5,fill:'rgba(255,255,255,.4)',stroke:'var(--mute)','stroke-width':1.5},g);el('path',{d:'M7 10V88',class:'shine'},g);el('path',{d:'M28 14V70',class:'shine',style:'stroke-width:1.5;stroke-opacity:.3'},g);
  el('text',{x:17,y:148,class:'tl'},g).textContent=l1;
  o.l2=el('text',{x:17,y:163,class:'ts'},g);o.l2.textContent=l2||'';
- o.fill=(f,c)=>{o.liq.style.transform='scaleY('+f+')';if(c)o.liq.style.fill=c};
+ o.fill=(f,c)=>{o.liq.style.transform='scaleY('+f+')';if(c)o.liq.style.fill=c;o.sf.style.opacity=1;o.sf.style.transform='translateY('+(118*(1-f))+'px)'};
  o.clump=n=>{for(let i=0;i<n;i++){const c=el('circle',{cx:5+Math.random()*24,cy:112-Math.random()*45,r:2+Math.random()*2.5,class:'fl'},o.fx);c.style.animationDelay=Math.random()*.8+'s'}};
+ o.froth=f=>{const y=118*(1-f);for(let i=0;i<8;i++)el('circle',{cx:4+Math.random()*26,cy:y+Math.random()*5-1,r:1.8+Math.random()*2.4,fill:'#fff','fill-opacity':.9,stroke:'rgba(0,0,0,.2)','stroke-width':.8},o.fx)};
  o.bub=on=>{o.fx.querySelectorAll('.bb').forEach(b=>b.remove());if(on)for(let i=0;i<5;i++){const b=el('circle',{cx:6+i*5.5,cy:112,r:2},o.fx);b.setAttribute('class','bb');b.style.animationDelay=i*.25+'s'}};
  return o}
 function mkBottle(svg){
@@ -138,16 +154,29 @@ milk:{n:'susu cair',base:'#fcfbf4',r:[
 {c:'#f6f1dc',n:12,t:'Asam cuka: menggumpal. Kasein mengendap pada pH asam.',s:'Menggumpal'},
 {c:'#f6f1dc',n:8,t:'Alkohol: ada gumpalan putih halus.',s:'Gumpalan halus'},
 {c:'#fcfbf4',n:0,t:'Aquadest: tetap putih. Ini pembanding.',s:'Tidak berubah'}]}};
-const SUB=[{n:'Saliva',s:'Asam lemah mendekati netral',c:'rgba(235,235,225,.85)',lm:['Merah tetap','#d33a3a'],lb:['Biru tetap','#3a5fd3'],ph:['pH 6,8','#9ccf3a'],fr:['Kuning kejinggaan','#f0a830']},
-{n:'HCl 0,1 M',s:'Asam kuat',c:'rgba(225,235,240,.7)',lm:['Merah tetap','#d33a3a'],lb:['Jadi merah','#d33a3a'],ph:['pH 1','#e5322d'],fr:['Kuning','#f2d22e']},
-{n:'NaHCO3 0,1 M',s:'Basa lemah',c:'rgba(225,235,240,.7)',lm:['Jadi biru','#3a5fd3'],lb:['Biru tetap','#3a5fd3'],ph:['pH 8','#2f9a8a'],fr:['Merah muda','#e0386b']},
-{n:'Aquadest',s:'Netral',c:'rgba(225,235,240,.7)',lm:['Merah tetap','#d33a3a'],lb:['Biru tetap','#3a5fd3'],ph:['pH 7','#6fbf4a'],fr:['Oranye kemerahan','#ee6a2e']}];
+/* warna cairan 'c' dibuat lebih pekat supaya terlihat jelas di dalam tabung */
+const SUB=[{n:'Saliva',s:'Asam lemah mendekati netral',c:'#e6dca6',lm:['Merah tetap','#d33a3a'],lb:['Biru tetap','#3a5fd3'],ph:['pH 6,8','#9ccf3a'],fr:['Kuning kejinggaan','#f0a830']},
+{n:'HCl 0,1 M',s:'Asam kuat',c:'#a9dcef',lm:['Merah tetap','#d33a3a'],lb:['Jadi merah','#d33a3a'],ph:['pH 1','#e5322d'],fr:['Kuning','#f2d22e']},
+{n:'NaHCO3 0,1 M',s:'Basa lemah',c:'#b4e3cf',lm:['Jadi biru','#3a5fd3'],lb:['Biru tetap','#3a5fd3'],ph:['pH 8','#2f9a8a'],fr:['Merah muda','#e0386b']},
+{n:'Aquadest',s:'Netral',c:'#9fcdf2',lm:['Merah tetap','#d33a3a'],lb:['Biru tetap','#3a5fd3'],ph:['pH 7','#6fbf4a'],fr:['Oranye kemerahan','#ee6a2e']}];
 const T3=[{s:'4°C',io:['Biru kehitaman','#1b1b4d'],be:['Biru','#3b8fd1'],it:'Pati masih ada. Enzim hampir tidak aktif di suhu dingin.'},
 {s:'25°C',io:['Ungu','#5d3d86'],be:['Hijau','#4fa88a'],it:'Pati terurai sebagian. Aktivitas enzim sedang.'},
 {s:'37°C',io:['Kuning kecokelatan','#c98a2b'],be:['Merah bata','#d2561f'],it:'Pati habis terurai. Ini suhu optimum amilase.'},
 {s:'100°C',io:['Biru kehitaman','#1b1b4d'],be:['Biru','#3b8fd1'],it:'Pati utuh. Enzim rusak (denaturasi) oleh panas.'},
 {s:'25°C',io:['Biru kehitaman','#1b1b4d'],be:['Biru','#3b8fd1'],it:'Kontrol tanpa enzim. Pati tidak terurai.'},
 {s:'100°C',io:['Biru kehitaman','#1b1b4d'],be:['Biru','#3b8fd1'],it:'Kontrol saliva dipanaskan. Enzim rusak, pati utuh.'}];
+/* [soal, pilihan, indeks benar, penjelasan, topik] */
+const QZ=[
+['Ikatan apa yang menghubungkan asam amino pada struktur primer protein?',['Ikatan hidrogen','Ikatan peptida (kovalen)','Interaksi hidrofobik','Ikatan van der Waals'],1,'Jawaban: ikatan peptida. Struktur primer adalah urutan asam amino yang terikat secara kovalen.','Struktur protein'],
+['Struktur sekunder protein (α-heliks dan β-sheet) terbentuk karena...',['Ikatan hidrogen pada rantai induk','Ikatan antar subunit','Ion kalsium','Ikatan glikosidik'],0,'Jawaban: ikatan hidrogen pada rantai induk polipeptida.','Struktur protein'],
+['Sebagian besar protein mengalami denaturasi pada kisaran suhu...',['10-25°C','30-40°C','55-75°C','Di atas 150°C'],2,'Jawaban: 55-75°C.','Denaturasi protein'],
+['Mengapa protein mengendap saat didenaturasi oleh asam?',['Protein menjadi larut sempurna','Muatan positif dan negatifnya seimbang (titik isoelektrik)','Ikatan peptida bertambah','Protein berubah menjadi gula'],1,'Jawaban: pada titik isoelektrik muatan positif dan negatif sama, sehingga protein mengendap.','Denaturasi protein'],
+['Pada metode Biuret, kompleks biru terbentuk dari reaksi antara...',['Iodium dan pati','Ion Cu2+ suasana basa dan ikatan peptida','Ion Ca2+ dan asam amino','Coomassie Blue dan gula'],1,'Jawaban: ion Cu2+ dalam suasana basa bereaksi dengan ikatan peptida.','Analisis protein'],
+['Manakah yang BUKAN ciri enzim?',['Mempercepat reaksi','Bekerja pada kondisi sedang','Bersifat spesifik','Habis terpakai pada akhir reaksi'],3,'Jawaban: enzim dihasilkan kembali di akhir reaksi, sehingga tidak habis terpakai.','Sifat enzim'],
+['Kondisi optimum amilase saliva adalah...',['pH 1-2 dan 37°C','pH 8-9 dan 4°C','pH 5,6-6,9 dan 37°C','pH 7 dan 100°C'],2,'Jawaban: pH 5,6-6,9 dan suhu 37°C.','Enzim amilase'],
+['Ion yang diperlukan α-amilase agar dapat bekerja adalah...',['Na+','Ca2+','Cl-','K+'],1,'Jawaban: kalsium (Ca2+). Karena itu amilase digolongkan sebagai metaloenzim kalsium.','Enzim amilase'],
+['Pada uji iodium, warna biru kehitaman menunjukkan...',['Pati sudah habis','Terbentuk gula pereduksi','Pati masih ada','Enzim aktif penuh'],2,'Jawaban: pati masih ada. Pati yang sudah terhidrolisis tidak memberi warna biru kehitaman.','Uji iodium dan Benedict'],
+['Setelah dipanaskan, pereaksi Benedict berwarna merah bata menandakan...',['Pati utuh','Gula pereduksi banyak (pati terhidrolisis)','Enzim rusak','Protein terdenaturasi'],1,'Jawaban: gula pereduksi banyak, artinya amilase menghidrolisis pati dengan baik.','Uji iodium dan Benedict']];
 
 /* ===== 1. denaturasi ===== */
 function B1(svg){
@@ -176,20 +205,43 @@ function pick(k){S.smp=k;document.querySelectorAll('#obs button').forEach(b=>b.c
 
 /* ===== 2. saliva ===== */
 function B2(svg){
- base(svg,340,155,565);const X=i=>155+i*125,Y=120,T=SUB.map(s=>mkTube(svg,X(i=SUB.indexOf(s)),Y,s.n));
+ base(svg,340,155,565);const X=i=>155+i*125,Y=120,T=SUB.map((s,i)=>mkTube(svg,X(i),Y,s.n));
  const cup=el('g',{class:'fd'},svg);
- const lv=el('rect',{x:306,y:150,width:108,height:98,class:'liq'},cup);lv.style.fill='rgba(235,235,225,.9)';
+ const lv=el('rect',{x:306,y:150,width:108,height:98,class:'liq'},cup);lv.style.fill='#e0d59a';
  el('path',{d:'M305 150V250H415V150',class:'glass'},cup);el('text',{x:360,y:276,class:'tl'},cup).textContent='Saliva sekitar 25 mL';
  const bt=mkBottle(svg),KI={lm:0,lb:1,ph:2,fr:3},R=SUB.map(s=>[s.n,'','','','','']);
- const rd=()=>$('#tbl').innerHTML=tb(['Zat uji','Lakmus merah','Lakmus biru','Kertas pH','Fenol red','Sifat'],R);
- const strip=(k,col,nm)=>async()=>{for(let i=0;i<4;i++){const s=el('rect',{x:-5,y:0,width:10,height:52,rx:1,class:'sp'},svg);s.style.fill=col;s.style.transition='none';mv(s,X(i)+17,30);await wait(40);s.style.transition='transform .7s ease,fill .8s';mv(s,X(i)+17,150);await wait(800);s.style.fill=SUB[i][k][1];Z.set(PH[i],SUB[i].n);await wait(900);mv(s,X(i)+17,30);await wait(700);s.remove();R[i][1+KI[k]]=chip(SUB[i][k][1],SUB[i][k][0]);rd()}return nm+' dicelup ke tiap tabung. Lihat perubahan warna pada tabel.'};
+ const rd=()=>$('#tbl').innerHTML=tb(['Zat uji','Lakmus merah','Lakmus biru','Kertas pH universal','Fenol red','Sifat'],R);
+ // Kertas pH universal terdiri atas beberapa bidang indikator dengan warna berbeda.
+ const PH_BANDS=[
+  ['#55564f','#d6b51b','#9fbea7','#f3c35f','#d9dce4'],
+  ['#55564f','#e2c51a','#d7b6a6','#e96d42','#d9342b'],
+  ['#55564f','#d4b91a','#8dbca5','#65a99b','#315b9b'],
+  ['#55564f','#d9bd1b','#9fbea7','#efc35b','#d9dce4']
+ ];
+ const strip=(k,col,nm)=>async()=>{
+  for(let i=0;i<4;i++){
+   const x=X(i)+17,g=el('g',{},svg);mv(g,x,30);let bands=[];
+   if(k==='ph'){
+    const initial=['#55564f','#d5b91a','#9fbea7','#f0c35e','#d9dce4'];
+    for(let j=0;j<5;j++)bands.push(el('rect',{x:-5,y:j*10.4,width:10,height:10.4,rx:.5,fill:initial[j],class:'sp'},g));
+   }else{
+    const r=el('rect',{x:-5,y:0,width:10,height:52,rx:1,class:'sp'},g);r.style.fill=col;
+   }
+   await wait(40);g.style.transition='transform .7s ease';mv(g,x,150);await wait(800);
+   if(k==='ph')bands.forEach((b,j)=>{b.style.transition='fill .8s';b.style.fill=PH_BANDS[i][j]});
+   else{const r=g.querySelector('rect');r.style.transition='fill .8s';r.style.fill=SUB[i][k][1]}
+   Z.set(PH[i],SUB[i].n);await wait(900);mv(g,x,30);await wait(700);g.remove();
+   R[i][1+KI[k]]=chip(SUB[i][k][1],SUB[i][k][0]);rd();
+  }
+  return nm+' dicelup ke tiap tabung. Kertas pH universal menampilkan beberapa bidang warna sekaligus, dengan pola warna berbeda sesuai pH larutan.'
+ };
  return{title:'Uji keasaman saliva',goal:'Tentukan sifat asam atau basa saliva dengan membandingkannya dengan HCl, NaHCO3, dan aquadest.',steps:[
- {t:'Kumpulkan saliva',d:'Berkumur dulu sampai bersih, lalu tampung saliva.',go:async()=>{lv.style.transform='scaleY(1)';for(let i=0;i<7;i++){const c=el('circle',{cx:360,cy:90,r:4,fill:'#cfd8c8'},svg);c.style.setProperty('--f','110px');c.style.animation='dr .7s ease-in forwards';setTimeout(()=>c.remove(),750);await wait(330)}await wait(600);return 'Saliva terkumpul sekitar 25 mL.'}},
- {t:'Siapkan 4 tabung',d:'Isi masing-masing 2 mL: saliva, HCl, NaHCO3, aquadest.',go:async()=>{cup.style.opacity=0;await wait(700);T.forEach((t,i)=>{t.g.style.opacity=1;t.fill(.35,SUB[i].c);t.l2.textContent='2 mL'});rd();return 'Tabung A saliva, B HCl 0,1 M, C NaHCO3 0,1 M, D aquadest.'}},
+ {t:'Kumpulkan saliva',d:'Berkumur dulu sampai bersih, lalu tampung saliva.',go:async()=>{lv.style.transform='scaleY(1)';for(let i=0;i<7;i++){const c=el('circle',{cx:360,cy:90,r:4,fill:'#d9cf8f',stroke:'rgba(0,0,0,.25)'},svg);c.style.setProperty('--f','110px');c.style.animation='dr .7s ease-in forwards';setTimeout(()=>c.remove(),750);await wait(330)}await wait(600);return 'Saliva terkumpul sekitar 25 mL. Cairannya agak keruh kekuningan dan sedikit berbusa.'}},
+ {t:'Siapkan 4 tabung',d:'Isi masing-masing 2 mL: saliva, HCl, NaHCO3, aquadest.',go:async()=>{cup.style.opacity=0;await wait(700);T.forEach((t,i)=>{t.g.style.opacity=1;t.fill(.55,SUB[i].c);t.l2.textContent='2 mL'});T[0].froth(.55);rd();return 'Tabung A saliva (keruh kekuningan, berbusa tipis), B HCl 0,1 M, C NaHCO3 0,1 M, D aquadest.'}},
  {t:'Lakmus merah',d:'Celup kertas lakmus merah ke tiap tabung selama 10 detik.',go:strip('lm','#d33a3a','Lakmus merah')},
  {t:'Lakmus biru',d:'Celup kertas lakmus biru ke tiap tabung.',go:strip('lb','#3a5fd3','Lakmus biru')},
- {t:'Kertas pH',d:'Celup kertas pH universal ke tiap tabung.',go:strip('ph','#e8d27a','Kertas pH')},
- {t:'Fenol red',d:'Teteskan fenol red ke tiap tabung.',go:async()=>{bt.set('Fenol red','#ee8a3a');for(let i=0;i<4;i++){await bt.pour(X(i)+17,80,40,3);T[i].fill(.5,SUB[i].fr[1]);R[i][4]=chip(SUB[i].fr[1],SUB[i].fr[0]);rd()}bt.away();return 'Warna fenol red berubah sesuai pH tiap larutan.'}},
+ {t:'Kertas pH universal',d:'Celup kertas pH universal ke tiap tabung.',go:strip('ph','#e8d27a','Kertas pH universal')},
+ {t:'Fenol red',d:'Teteskan fenol red ke tiap tabung.',go:async()=>{bt.set('Fenol red','#ee8a3a');for(let i=0;i<4;i++){await bt.pour(X(i)+17,80,40,3);T[i].fill(.55,SUB[i].fr[1]);R[i][4]=chip(SUB[i].fr[1],SUB[i].fr[0]);rd()}bt.away();return 'Warna fenol red berubah sesuai pH tiap larutan.'}},
  {t:'Kesimpulan',d:'Baca sifat tiap zat dari hasil uji.',q:['Saliva paling mirip dengan yang mana?',['HCl (asam kuat)','NaHCO3 (basa)','Aquadest (netral)'],2,'Saliva sekitar pH 6,8, hampir netral.'],go:async()=>{SUB.forEach((s,i)=>R[i][5]=s.s);Z.set(6.8,'Saliva');rd();return 'Saliva hampir netral dan sedikit asam (pH sekitar 6,8). Rentang ini cocok untuk amilase saliva yang optimum di pH 5,6 sampai 6,9.'}}]}}
 
 /* ===== 3. amilase ===== */
@@ -202,11 +254,10 @@ function B3(svg){
  const sp=el('g',{class:'fd'},svg);sp.style.opacity=0;el('rect',{x:46,y:298,width:588,height:66,rx:14,class:'cd'},sp);el('text',{x:340,y:381,class:'ts'},sp).textContent='Plat tetes';
  const W=T3.map((t,i)=>{const c=el('circle',{cx:X(i)+17,cy:331,r:16,class:'liq'},sp);c.style.transform='none';c.style.fill='#ddd';return c});
  const bt=mkBottle(svg),clk=mkClock(svg);
- const each=async(fn)=>{for(let i=0;i<6;i++)await fn(i)};
  return{title:'Pengaruh suhu pada amilase saliva',goal:'Cari suhu terbaik untuk amilase saliva. Pati yang tersisa diuji dengan iodium, gula hasil pemecahan diuji dengan Benedict.',steps:[
- {t:'Siapkan 6 tabung',d:'Tabung 1 sampai 4 berisi saliva dan aquades. Tabung 5 dan 6 sebagai pembanding.',go:async()=>{for(let i=0;i<6;i++){T[i].g.style.opacity=1;T[i].fill(.4,i===4?'#dff1f7':'rgba(235,225,185,.85)');await wait(250)}return 'Tabung 1 sampai 4: 2 mL saliva + 2 mL aquades. Tabung 5: 4 mL aquades. Tabung 6: 4 mL saliva.'}},
+ {t:'Siapkan 6 tabung',d:'Tabung 1 sampai 4 berisi saliva dan aquades. Tabung 5 dan 6 sebagai pembanding.',go:async()=>{for(let i=0;i<6;i++){T[i].g.style.opacity=1;T[i].fill(.5,i===4?'#b9e0f2':'#e6dca6');await wait(250)}return 'Tabung 1 sampai 4: 2 mL saliva + 2 mL aquades. Tabung 5: 4 mL aquades. Tabung 6: 4 mL saliva.'}},
  {t:'Atur suhu',d:'Letakkan tiap tabung pada suhu berbeda selama 10 menit.',q:['Pada suhu berapa amilase saliva bekerja paling cepat?',['4°C','37°C','100°C'],1,'Suhu tubuh (37°C) adalah suhu optimum amilase saliva.'],go:async()=>{bg.forEach(g=>g.style.opacity=1);T.forEach((t,i)=>t.l2.textContent=T3[i].s);T[3].bub(true);T[5].bub(true);await clk(10);return 'Tabung 1 di es (4°C), tabung 2 dan 5 suhu kamar (25°C), tabung 3 di 37°C, tabung 4 dan 6 di air mendidih (100°C).'}},
- {t:'Tambah pati 1%',d:'Teteskan 2 mL larutan pati 1% ke semua tabung.',go:async()=>{bt.set('Pati 1%','#e8e4f4');for(let i=0;i<6;i++){await bt.pour(X(i)+17,80,40,3);T[i].fill(.65,'#efe9d6')}bt.away();return 'Pati sudah tercampur di semua tabung. Warna campuran putih keruh.'}},
+ {t:'Tambah pati 1%',d:'Teteskan 2 mL larutan pati 1% ke semua tabung.',go:async()=>{bt.set('Pati 1%','#e8e4f4');for(let i=0;i<6;i++){await bt.pour(X(i)+17,80,40,3);T[i].fill(.7,'#efe9d6')}bt.away();return 'Pati sudah tercampur di semua tabung. Warna campuran putih keruh.'}},
  {t:'Inkubasi 20 menit',d:'Biarkan tiap tabung pada suhunya masing-masing.',go:async()=>{const c=(async()=>{for(const m of[0,1,3,2]){Z.set(m);await wait(700)}})();await clk(20);await c;return 'Pada suhu yang cocok, amilase memecah pati menjadi maltosa dan glukosa.'}},
  {t:'Pindah ke plat tetes',d:'Ambil 1 mL dari tiap tabung ke sumur plat tetes.',go:async()=>{T[3].bub(false);T[5].bub(false);sp.style.opacity=1;await wait(900);W.forEach(w=>w.style.fill='#efe9d6');await wait(900);return 'Setiap sumur berisi 1 mL campuran dari tabung bernomor sama.'}},
  {t:'Uji iodium',d:'Teteskan 2 tetes iodium. Biru kehitaman berarti pati masih ada.',go:async()=>{bt.set('Iodium','#c98a3a');for(let i=0;i<6;i++){await bt.pour(X(i)+17,312,14,2);W[i].style.fill=T3[i].io[1]}bt.away();return 'Tabung 3 paling terang (pati habis). Tabung 1, 4, 5, 6 biru kehitaman (pati utuh). Tabung 2 ungu (pati tersisa sebagian).'}},
@@ -214,35 +265,99 @@ function B3(svg){
  {t:'Panaskan Benedict',d:'Rebus tabung di air mendidih. Warna berubah bila ada gula pereduksi.',go:async()=>{T.forEach(t=>t.bub(true));await wait(2600);T.forEach((t,i)=>{t.fill(.85,T3[i].be[1])});await wait(1400);T.forEach(t=>t.bub(false));return 'Tabung 3 merah bata (gula paling banyak). Tabung 2 hijau. Tabung 1, 4, 5, 6 tetap biru.'}},
  {t:'Hasil dan kesimpulan',d:'Lihat tabel interpretasi.',go:async()=>{$('#tbl').innerHTML=tb(['Tabung','Suhu','Iodium','Benedict','Arti'],T3.map((t,i)=>[i+1,t.s,chip(t.io[1],t.io[0]),chip(t.be[1],t.be[0]),t.it]));return 'Amilase saliva paling aktif pada 37°C. Suhu dingin menahan kerja enzim, suhu 100°C merusaknya.'}}]}}
 
-/* ===== zoom molekul ===== */
+/* ===== 4. kuis ===== */
+function B4(svg){
+ base(svg,340,46,660);const X=i=>60+i*62,T=QZ.map((q,i)=>mkTube(svg,X(i),120,String(i+1)));
+ T.forEach(t=>{t.g.style.opacity=1;t.fill(.3,'rgba(200,215,235,.7)')});
+ return{title:'Kuis protein dan enzim',goal:'Jawab 10 soal sesuai materi praktikum. Tabung hijau berarti benar, merah berarti perlu dipelajari lagi.',steps:QZ.map((q,i)=>({t:'Soal '+(i+1),d:q[4],q:[q[0],q[1],q[2],q[3],1],go:async()=>{T[i].fill(.85,lastOk?'#7bd389':'#ff8a7a');T[i].l2.textContent=lastOk?'Benar':'Salah'}}))}}
+
+/* ===== zoom molekul (semua gambar diberi keterangan) ===== */
 const zm=$('#zm'),PH=[6.8,1,8,7],cap=t=>$('#zc').textContent=t;let Z;
-function Z1(){zm.innerHTML='';const N=el('g',{class:'zs on'},zm),C=el('g',{class:'zs'},zm);
- [[50,55],[110,85],[170,52]].forEach(p=>{el('circle',{cx:p[0],cy:p[1],r:23,fill:'#ff9d88'},N);el('path',{d:'M'+(p[0]-14)+' '+p[1]+'q7-14 14 0t14 0M'+(p[0]-10)+' '+(p[1]+10)+'q5-8 10 0t10 0',class:'sq'},N)});
- ['M40 50q15 40 30 0t30 0t30 0','M50 72q20-30 40 0t40 0t40 0','M60 98q15 30 30 0t30 0t30 0'].forEach(d=>el('path',{d,class:'sq r'},C));
+const PC=['#e5322d','#ee4a2c','#f26a2a','#f59a2c','#f5c431','#e8e04a','#6fbf4a','#3fae7a','#2f9a8a','#2f87b8','#3a5fd3','#5a4bc4','#6b3fa0','#5a2d86'];
+const fm=p=>Number.isInteger(+p)?String(+p):(+p).toFixed(1).replace('.',',');
+const sph=(id,c)=>{const g=el('radialGradient',{id,cx:.35,cy:.3,r:.75},el('defs',{},zm));[[0,'#fff'],[.35,c],[1,'color-mix(in srgb,'+c+' 45%,#000)']].forEach(a=>{const s=el('stop',{offset:a[0]},g);s.style.stopColor=a[1]})};
+/* baris keterangan: ikon (titik atau garis lekuk) + teks */
+function lgd(g,y,ic,col,t){if(ic==='dot')el('circle',{cx:17,cy:y-3.5,r:4.5,fill:col,stroke:'var(--mute)','stroke-width':1},g);else{const p=el('path',{d:'M8 '+(y-3)+'q3-7 6 0t6 0t6 0',class:'sq'},g);p.style.stroke=col;p.style.strokeWidth=2}el('text',{x:30,y,class:'zl'},g).textContent=t}
+function zh(g,t){el('text',{x:110,y:15,class:'zh'},g).textContent=t;return g}
+
+function Z1(){zm.innerHTML='';sph('sA','#ff9d88');const N=el('g',{class:'zs on'},zm),C=el('g',{class:'zs'},zm);
+ el('text',{x:110,y:15,class:'zh'},N).textContent='PROTEIN NATIF (bentuk asli)';
+ [[50,64],[110,90],[170,60]].forEach(p=>{el('circle',{cx:p[0],cy:p[1],r:23,fill:'url(#sA)'},N);el('path',{d:'M'+(p[0]-14)+' '+p[1]+'q7-14 14 0t14 0M'+(p[0]-10)+' '+(p[1]+10)+'q5-8 10 0t10 0',class:'sq'},N)});
+ lgd(N,138,'dot','#ff9d88','Bola = protein terlipat rapi (aktif)');lgd(N,153,'sq','var(--ink)','Garis = rantai asam amino utuh');
+ el('text',{x:110,y:15,class:'zh'},C).textContent='PROTEIN TERDENATURASI';
+ ['M40 48q15 40 30 0t30 0t30 0','M50 74q20-30 40 0t40 0t40 0','M60 100q15 30 30 0t30 0t30 0'].forEach(d=>el('path',{d,class:'sq r'},C));
+ [[70,64],[112,74],[150,96],[96,108]].forEach(p=>el('circle',{cx:p[0],cy:p[1],r:4.5,fill:'#fff',stroke:'var(--ink)','stroke-width':1},C));
+ lgd(C,138,'sq','#ff6b5b','Rantai protein terbuka dan kusut');lgd(C,153,'dot','#fff','Titik putih = gumpalan / endapan');
  cap('Protein menggulung rapi seperti bola (bentuk asli).');
  return{set:(k,t)=>{N.classList.toggle('on',!k);C.classList.toggle('on',!!k);cap(t)}}}
-function Z2(){zm.innerHTML='';const lg=el('linearGradient',{id:'ph'},el('defs',{},zm));['#e5322d','#f2a02e','#e8d84a','#6fbf4a','#2f9a8a','#3a5fd3','#6b3fa0'].forEach((c,i)=>el('stop',{offset:i/6,'stop-color':c},lg));
- el('rect',{x:15,y:70,width:190,height:20,rx:10,fill:'url(#ph)'},zm);
- [[15,'0 asam'],[110,'7 netral'],[205,'14 basa']].forEach(a=>el('text',{x:a[0],y:112,class:'zt'},zm).textContent=a[1]);
- const m=el('g',{},zm);m.style.transition='transform .8s cubic-bezier(.3,1.6,.5,1)';el('path',{d:'M0 64l-8-16h16z',fill:'var(--ink)'},m);const tx=el('text',{x:0,y:36,class:'zt'},m);
- const set=(ph,t)=>{mv(m,15+ph/14*190,0);tx.textContent=t+' pH '+String(ph).replace('.',',');if(t==='Saliva')cap('Saliva hampir netral: pas untuk amilase.')};
- set(7,'Netral');cap('Penanda bergeser ke pH zat yang diuji.');return{set}}
-function Z3(){zm.innerHTML='';const B=[];el('path',{d:'M25 90H196',stroke:'#8e7cff','stroke-width':3},zm);
- for(let i=0;i<12;i++){const c=el('circle',{cx:25+i*15.5,cy:90,r:7,fill:'#8e7cff'},zm);c.style.transition='transform .7s';B.push(c)}
- const E=el('g',{},zm),ep=el('path',{d:'M0 0L14-10A17 17 0 1 0 14 10Z'},E);el('circle',{cx:-3,cy:-7,r:2.5,fill:'#1b2a4a'},E);E.style.transition='transform .9s';ep.style.transition='fill .5s';
- const X=[40,110,190,100],CL=['#8fd3ff','#ffc857','#4cd38a','#ff5a5a'],CUT=[0,3,6,0],CT=['Pati = rantai gula panjang. Amilase = gunting molekul.','4°C: enzim membeku, hampir tidak memotong.','25°C: enzim memotong pelan, sebagian pati terurai.','37°C: amilase memotong pati jadi maltosa. Optimum!','100°C: bentuk enzim rusak, pati tetap utuh.'];
- const set=m=>{mv(E,m<0?30:X[m],52);ep.style.fill=m<0?'#ffc857':CL[m];B.forEach((b,i)=>{const p=i>>1;b.style.transform=m>=0&&p<CUT[m]?'translate(0,'+(p%2?12:-12)+'px)':'none'});cap(CT[m+1])};
+
+function Z2(){zm.innerHTML='';
+ const df=el('defs',{},zm),gr=el('linearGradient',{id:'phg',x1:0,y1:0,x2:1,y2:0},df);
+ PC.forEach((c,i)=>el('stop',{offset:(i/13*100)+'%','stop-color':c},gr));
+ const X=p=>12+(p-1)/13*196;
+ /* skala pH 1-14 */
+ el('rect',{x:12,y:27,width:196,height:15,rx:7.5,fill:'url(#phg)',stroke:'var(--mute)','stroke-width':1.5},zm);
+ for(let p=1;p<=14;p++){el('line',{x1:X(p),y1:42,x2:X(p),y2:46,stroke:'var(--mute)','stroke-width':1},zm);el('text',{x:X(p),y:55,class:'zn'},zm).textContent=p}
+ el('path',{d:'M'+X(1)+' 62H'+X(6.4),stroke:'#e5322d','stroke-width':3,'stroke-linecap':'round',fill:'none'},zm);
+ el('circle',{cx:X(7),cy:62,r:2.5,fill:'#6fbf4a'},zm);
+ el('path',{d:'M'+X(7.6)+' 62H'+X(14),stroke:'#3a5fd3','stroke-width':3,'stroke-linecap':'round',fill:'none'},zm);
+ [[3.7,'ASAM'],[7,'NETRAL'],[10.5,'BASA']].forEach(a=>el('text',{x:X(a[0]),y:73,class:'zn'},zm).textContent=a[1]);
+ /* isi tetesan larutan: ion H+ dan OH- */
+ el('text',{x:14,y:85,class:'zl',style:'font-size:9px'},zm).textContent='Isi larutan (diperbesar):';
+ el('rect',{x:12,y:89,width:196,height:48,rx:10,fill:'var(--card)',stroke:'var(--line)','stroke-width':2},zm);
+ const cells=[];for(let r=0;r<3;r++)for(let c=0;c<12;c++)cells.push([24+c*15.6+(r%2?4:0),103+r*13]);
+ let sd=7;const rnd=()=>(sd=sd*16807%2147483647)/2147483647;
+ for(let i=cells.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[cells[i],cells[j]]=[cells[j],cells[i]]}
+ const mk=(c,pos,ch)=>{const g=el('g',{},zm);g.style.transition='opacity .4s';el('circle',{cx:pos[0],cy:pos[1],r:5.3,fill:c,stroke:'#fff','stroke-width':.8},g);const t=el('text',{x:pos[0],y:pos[1]+3,style:'font:800 8px sans-serif;text-anchor:middle;fill:#fff'},g);t.textContent=ch;return g};
+ const Hs=cells.slice(0,17).map(p=>mk('#e5322d',p,'+')),Os=cells.slice(17,34).map(p=>mk('#3a5fd3',p,'−'));
+ lgd(zm,150,'dot','#e5322d','H⁺ = ion pembawa sifat asam');lgd(zm,162,'dot','#3a5fd3','OH⁻ = ion pembawa sifat basa');
+ /* penanda yang bergeser di atas skala */
+ const m=el('g',{},zm);m.style.transition='transform .8s cubic-bezier(.3,1.6,.5,1)';
+ el('path',{d:'M0 26l-6-9h12z',fill:'var(--ink)'},m);el('line',{x1:0,y1:27,x2:0,y2:42,stroke:'#fff','stroke-width':2.2},m);
+ const tx=el('text',{x:0,y:11,class:'zh'},m);
+ const kind=p=>p<3?'asam kuat, H⁺ sangat banyak dan OH⁻ sangat sedikit.':Math.abs(p-7)<.5?'netral, H⁺ dan OH⁻ seimbang.':p<7?'asam lemah, H⁺ lebih banyak dari OH⁻.':p<11?'basa lemah, OH⁻ lebih banyak dari H⁺.':'basa kuat, OH⁻ sangat banyak dan H⁺ sangat sedikit.';
+ const set=(ph,name)=>{const p=Math.max(1,Math.min(14,+ph));
+  mv(m,X(p),0);tx.setAttribute('x',Math.max(48,Math.min(172,X(p)))-X(p));tx.textContent=(name?name+' · ':'')+'pH '+fm(p);
+  const nH=Math.round(1+15*(14-p)/13),nO=Math.round(1+15*(p-1)/13);
+  Hs.forEach((g,i)=>g.style.opacity=i<nH?1:0);Os.forEach((g,i)=>g.style.opacity=i<nO?1:0);
+  $('#phr').value=p;$('#phv').textContent=fm(p);
+  cap(name==='Saliva'?'Saliva pH sekitar 6,8: hampir netral dan sedikit asam, pas untuk amilase (optimum pH 5,6 sampai 6,9).':(name?name+' ':'')+'pH '+fm(p)+': '+kind(p))};
+ set(7,'');cap('Geser slider pH di bawah gambar, atau jalankan uji untuk melihat posisi tiap larutan.');return{set}}
+
+function Z3(){zm.innerHTML='';sph('sB','#8e7cff');const B=[];
+ const hd=el('text',{x:110,y:15,class:'zh'},zm);
+ el('path',{d:'M25 98H196',stroke:'#8e7cff','stroke-width':3},zm);
+ for(let i=0;i<12;i++){const c=el('circle',{cx:25+i*15.5,cy:98,r:7,fill:'url(#sB)'},zm);c.style.transition='transform .7s';B.push(c)}
+ const E=el('g',{},zm),ep=el('path',{d:'M0 0L14-10A17 17 0 1 0 14 10Z',stroke:'rgba(0,0,0,.3)'},E);el('circle',{cx:-3,cy:-7,r:2.5,fill:'#1b2a4a'},E);
+ el('text',{x:0,y:-25,class:'zl',style:'text-anchor:middle;font-weight:800'},E).textContent='Amilase';
+ E.style.transition='transform .9s';ep.style.transition='fill .5s';
+ const cl=el('text',{x:110,y:126,class:'zl',style:'text-anchor:middle'},zm);
+ lgd(zm,142,'dot','#8e7cff','Bola ungu = molekul gula penyusun pati');lgd(zm,156,'dot','#ffc857','Pacman = enzim amilase (pemotong pati)');
+ const X=[40,110,190,100],CL=['#8fd3ff','#ffc857','#4cd38a','#ff5a5a'],CUT=[0,3,6,0],
+ CT=['Pati = rantai gula panjang. Amilase = enzim pemotong pati.','4°C: enzim membeku, hampir tidak memotong.','25°C: enzim memotong pelan, sebagian pati terurai.','37°C: amilase memotong pati jadi maltosa. Optimum!','100°C: bentuk enzim rusak, pati tetap utuh.'],
+ ST=['Pati + enzim amilase','4°C: enzim hampir tidak aktif','25°C: aktivitas sedang','37°C: AKTIF (optimum)','100°C: enzim rusak (denaturasi)'],
+ CB=['Pati utuh (rantai gula panjang)','Pati hampir utuh','Pati terpotong sebagian','Pati terpotong jadi maltosa','Pati tetap utuh (enzim rusak)'];
+ const set=m=>{mv(E,m<0?30:X[m],58);ep.style.fill=m<0?'#ffc857':CL[m];B.forEach((b,i)=>{const p=i>>1;b.style.transform=m>=0&&p<CUT[m]?'translate(0,'+(p%2?12:-12)+'px)':'none'});hd.textContent=ST[m+1];cl.textContent=CB[m+1];cap(CT[m+1])};
  set(-1);return{set}}
 
+function Z4(){zm.innerHTML='';zh(zm,'LEGENDA KUIS');
+ [['#7bd389','Tabung hijau = jawaban benar'],['#ff8a7a','Tabung merah = perlu dipelajari lagi'],['rgba(200,215,235,.8)','Tabung abu-abu = belum dijawab']].forEach((a,i)=>{const y=34+i*38;
+  el('path',{d:'M28 '+y+'v22a8 8 0 0 0 16 0v-22',fill:'none',stroke:'var(--mute)','stroke-width':2},zm);
+  el('path',{d:'M29 '+(y+10)+'v12a7 7 0 0 0 14 0v-12z',fill:a[0]},zm);
+  el('text',{x:56,y:y+19,class:'zl'},zm).textContent=a[1]});
+ el('text',{x:110,y:152,class:'zl',style:'text-anchor:middle'},zm).textContent='Tiap soal mengisi satu tabung di meja';
+ cap('Tiap soal yang dijawab mengisi satu tabung: hijau benar, merah perlu dipelajari lagi.');return{set(){}}}
+
 /* ===== mesin langkah ===== */
-const NX=$('#nx'),dog=c=>$('#dog').setAttribute('class',c);let pts=0;
+const NX=$('#nx'),dog=c=>$('#dog').setAttribute('class',c);let pts=0,lastOk,qc=0;
 const star=()=>$('#pts').textContent='⭐ '+(++pts);
-const ask=q=>new Promise(r=>{const o=$('#obs');o.innerHTML='<b>Tebak dulu!</b> '+q[0]+'<div>'+q[1].map((t,i)=>'<button class="b o" data-i="'+i+'">'+t+'</button>').join('')+'</div>';o.onclick=e=>{const b=e.target.closest('button');if(!b)return;const ok=+b.dataset.i===q[2];o.onclick=null;if(ok)star();o.textContent=(ok?'Tepat! ⭐ ':'Hampir! ')+q[3];setTimeout(r,2400)}});
+const ask=q=>new Promise(r=>{const o=$('#obs');o.innerHTML='<b>'+(q[4]?'Kuis:':'Tebak dulu!')+'</b> '+q[0]+'<div>'+q[1].map((t,i)=>'<button class="b o" data-i="'+i+'">'+t+'</button>').join('')+'</div>';o.onclick=e=>{const b=e.target.closest('button');if(!b)return;const ok=+b.dataset.i===q[2];o.onclick=null;lastOk=ok;if(ok){star();if(q[4])qc++}o.textContent=(ok?'Tepat! ⭐ ':q[4]?'Kurang tepat. ':'Hampir! ')+q[3];setTimeout(r,q[4]?300:2400)}});
 function boom(){for(let i=0;i<46;i++){const d=document.createElement('i');d.className='cf';d.style.cssText='left:'+Math.random()*100+'%;background:hsl('+Math.random()*360+' 85% 60%);animation-delay:'+Math.random()*.6+'s';$('#cf').appendChild(d);setTimeout(()=>d.remove(),3600)}}
-function hdr(){const N=cur.steps.length;$('#sn').textContent=si<0?'Siap dimulai':'Langkah '+(si+1)+' dari '+N;$('#bar').style.width=((si+1)/N*100)+'%';const s=si<0?{t:cur.title,d:cur.goal}:cur.steps[si];$('#st').textContent=s.t;$('#sd').textContent=s.d}
-function load(n){tab=n;document.body.dataset.t=n;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.n==n));const svg=$('#stage');svg.innerHTML='';uid=0;busy=false;S.smp='egg';Z=[Z1,Z2,Z3][n]();cur=[B1,B2,B3][n](svg);si=-1;dog('');$('#obs').onclick=null;$('#obs').textContent='Halo, aku Drh. Pronzim! Tekan tombol untuk mulai.';$('#tbl').innerHTML='';NX.textContent='Mulai: '+cur.steps[0].t;NX.disabled=false;hdr()}
-async function next(){if(busy)return;busy=true;NX.disabled=true;si++;hdr();const s=cur.steps[si];dog('busy');if(s.q)await ask(s.q);$('#obs').innerHTML='Sedang berjalan...';const r=await s.go();if(r){if(r[0]==='<')$('#obs').innerHTML=r;else $('#obs').textContent=r}dog('ok');setTimeout(()=>dog(''),1600);busy=false;if(si>=cur.steps.length-1){NX.textContent='Selesai 🎉';boom();$('#obs').textContent+=' Skor kamu: ⭐ '+pts;return}NX.textContent='Lanjut: '+cur.steps[si+1].t;NX.disabled=!!s.hold}
+function hdr(){const N=cur.steps.length;$('#sn').textContent=si<0?'Siap dimulai':(tab==3?'Soal ':'Langkah ')+(si+1)+' dari '+N;$('#bar').style.width=((si+1)/N*100)+'%';const s=si<0?{t:cur.title,d:cur.goal}:cur.steps[si];$('#st').textContent=s.t;$('#sd').textContent=s.d}
+function load(n){tab=n;document.body.dataset.t=n;document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.n==n));const svg=$('#stage');svg.innerHTML='';uid=0;busy=false;qc=0;S.smp='egg';$('#zr').hidden=n!==1;Z=[Z1,Z2,Z3,Z4][n]();cur=[B1,B2,B3,B4][n](svg);si=-1;dog('');$('#obs').onclick=null;$('#obs').textContent='Halo, aku Drh. Pronzim! Tekan tombol untuk mulai.';$('#tbl').innerHTML='';NX.textContent='Mulai: '+cur.steps[0].t;NX.disabled=false;hdr()}
+async function next(){if(busy)return;busy=true;NX.disabled=true;si++;hdr();const s=cur.steps[si];dog('busy');if(s.q)await ask(s.q);if(!(s.q&&s.q[4]))$('#obs').innerHTML='Sedang berjalan...';const r=await s.go();if(r){if(r[0]==='<')$('#obs').innerHTML=r;else $('#obs').textContent=r}dog('ok');setTimeout(()=>dog(''),1600);busy=false;if(si>=cur.steps.length-1){NX.textContent='Selesai 🎉';boom();$('#obs').textContent+=' Skor kamu: ⭐ '+pts+(tab==3?' (kuis benar '+qc+' dari '+cur.steps.length+')':'');return}NX.textContent='Lanjut: '+cur.steps[si+1].t;NX.disabled=!!s.hold}
 NX.onclick=next;$('#rs').onclick=()=>load(tab);
+$('#phr').oninput=e=>{if(tab===1&&Z)Z.set(+e.target.value,'')};
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>load(+b.dataset.n));
 load(0);
 </script></body></html>
